@@ -1,5 +1,4 @@
-from flask import Flask, request
-from flask import Response
+from flask import Flask, request, Response, abort
 
 from omorfi.omorfi import Omorfi
 
@@ -43,4 +42,7 @@ def analyze():
 
 if __name__ == "__main__":
     app.debug=True
+    # drop too large requests, things get compute intensive quite quickly
+    app.config['MAX_CONTENT_LENGTH'] = 128 * 1024
+
     app.run(host='0.0.0.0')
