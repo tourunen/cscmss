@@ -11,6 +11,6 @@ sleep 15
 oc logs -f bc/omorfi
 
 oc new-app https://github.com/tourunen/cscmss.git --context-dir build/omorfi-mss --name omorfi-mss
-oc logs -f bc/mss-lemma
+oc logs -f bc/omorfi-mss
 
 oc expose service omorfi-mss --hostname omorfi-mss.dac-oso.csc.fi
